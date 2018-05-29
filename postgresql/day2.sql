@@ -64,7 +64,7 @@ jan int, feb int, mar int, apr int, may int, jun int, jul int, aug int, sep int,
 --    the month. I hard coded in february because that has the most events as far as my data goes. Left join it on
 --    events so you still get a list of days without events. Use the extract function for week to use as the row id. The value from extracting
 --    the week is the week number of the year, and the documentation says even this can be iffy when it comes to the first week of
---    the year or the last week of the year (i.e. 2019/1/1 could potentially return that as week 55 or whatever of 2018).
+--    the year or the last week of the year (i.e. 2019/1/1 could potentially return that as week 53 of 2018). It fits my needs for now.
 --    It also results in an ugly id column. I suppose I could go further in selecting from the pivot table to clean up
 --    the results, but for now I get a result that looks like this:
 --     week | sunday | monday | tuesday | wednesday | thursday | friday | saturday

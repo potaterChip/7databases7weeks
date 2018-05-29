@@ -62,7 +62,9 @@ jan int, feb int, mar int, apr int, may int, jun int, jul int, aug int, sep int,
 -- ** This one might be more complicated than what it needs to be, and possibly because I'm just missing some postgresql functions,
 --    but this is what I came up with. Use the generate_series function again to build a temporary list of days for
 --    the month. I hard coded in february because that has the most events as far as my data goes. Left join it on
---    events so you still get a list of days without events. Use the extract function for week to use as the row id. The value from extracting
+--    events so you still get a list of days without events. Also note the conversion of the 'starts' column to just a date.
+--    Had to do this otherwise the grouping would not work since the times would still be unique.
+--    Used the extract function for week to use as the row id. The value from extracting
 --    the week is the week number of the year, and the documentation says even this can be iffy when it comes to the first week of
 --    the year or the last week of the year (i.e. 2019/1/1 could potentially return that as week 53 of 2018). It fits my needs for now.
 --    It also results in an ugly id column. I suppose I could go further in selecting from the pivot table to clean up
